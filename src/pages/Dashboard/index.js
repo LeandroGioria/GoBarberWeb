@@ -10,6 +10,7 @@ import {
     setHours,
     setMinutes,
     setSeconds,
+    setMilliseconds,
 } from 'date-fns';
 import { utcToZonedTime } from 'date-fns-tz';
 import pt from 'date-fns/locale/pt';
@@ -33,11 +34,11 @@ export default function Dashboard() {
                 params: { date },
             });
 
-            const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZode;
+            const { timeZone } = Intl.DateTimeFormat().resolvedOptions();
 
             const data = range.map(hour => {
-                const checkDate = setSeconds(
-                    setMinutes(setHours(date, hour), 0),
+                const checkDate = setMilliseconds(
+                    setSeconds(setMinutes(setHours(date, hour), 0), 0),
                     0
                 );
                 const compareDate = utcToZonedTime(checkDate, timeZone);

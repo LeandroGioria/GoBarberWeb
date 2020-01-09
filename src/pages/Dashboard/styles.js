@@ -49,5 +49,7 @@ export const Time = styled.li`
         display: block;
         margin-top: 3px;
         color: ${props => (props.available ? '#999' : '#666')};
+        font-weight: ${props => (props.available ? 'normal' : 'bold')};
+        text-decoration: ${props => (props.available ? 'none' : 'underline')};
     }
 `;
