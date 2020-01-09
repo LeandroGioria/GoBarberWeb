@@ -22,7 +22,7 @@ export default function Header() {
 
                     <Profile>
                         <div>
-                            <strong>Leandro Gioria</strong>
+                            <strong>{profile.name}</strong>
                             <Link to="/profile">Meu perfil</Link>
                         </div>
                         <img
